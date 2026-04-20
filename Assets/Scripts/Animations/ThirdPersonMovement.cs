@@ -34,6 +34,9 @@ public class ThirdPersonMovement : MonoBehaviour
             {
                 verticalVelocity = jumpPower;
                 animator.SetTrigger("Jump");
+
+                if (animator.GetCurrentAnimatorStateInfo(0).IsName("Jump") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.5f)
+                    verticalVelocity = jumpPower;
             }
         }
         else
@@ -50,8 +53,6 @@ public class ThirdPersonMovement : MonoBehaviour
         velocity.y = verticalVelocity;
 
         controller.Move(velocity * Time.deltaTime);
-
-
     }
 
     void OnTriggerStay(Collider other)
@@ -72,5 +73,10 @@ public class ThirdPersonMovement : MonoBehaviour
     private void GetDamageableComponent(out IDamageable damageable)
     {
         damageable = null;
+    }
+    
+    public void StartJump(int i)
+    {
+        Debug.Log("StartJump");
     }
 }

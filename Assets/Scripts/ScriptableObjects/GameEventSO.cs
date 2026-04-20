@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "GameEvent", menuName = "ScriptableObjects/GameEventSO", order = 2)]

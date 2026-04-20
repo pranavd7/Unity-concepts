@@ -24,10 +24,15 @@ public class EnemyPatrolState : IState
         //     owner.OnPlayerFound();
         // }
         
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            owner.StateMachine.ChangeState(owner.CelebrateState);
-        }
+        // if (Input.GetKeyDown(KeyCode.Space))
+        // {
+        //     owner.StateMachine.ChangeState(owner.CelebrateState);
+        // }
+
+        // if (playerFound)
+        // {
+        //     owner.StateMachine.ChangeState(owner.AttackState);
+        // }
     }
 
     public void Exit()

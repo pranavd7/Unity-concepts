@@ -17,10 +17,10 @@ public class EnemyCelebrateState : IState
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            owner.StateMachine.ChangeState(owner.PatrolState);
-        }
+        // if (Input.GetKeyDown(KeyCode.F))
+        // {
+        //     owner.StateMachine.ChangeState(owner.PatrolState);
+        // }
     }
 
     public void Exit()

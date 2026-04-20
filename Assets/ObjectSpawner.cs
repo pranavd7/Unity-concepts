@@ -19,7 +19,7 @@ public class ObjectSpawner : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             GameObject instance = ProjectilePooling.Instance.GetProjectile(prefab, PREFAB_ID, transform);
-            instance.transform.position = Random.Range(-1, 1) * Vector3.one;
+            instance.transform.position = Random.Range(-3, 3) * Vector3.one;
             spawnedGameObjects.Enqueue(instance);
         }
         

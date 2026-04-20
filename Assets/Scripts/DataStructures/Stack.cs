@@ -56,4 +56,9 @@ public class IntArrayStack
 
         return data[top];
     }
+
+    public int GetCount()
+    {
+        return top + 1;
+    }
 }

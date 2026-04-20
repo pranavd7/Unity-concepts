@@ -7,13 +7,25 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private GameEventSO gameEventSO;
     private int currentScore = 0;
+    
+    public static UIManager Instance{ get; private set; }
 
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Debug.Log($"Already exists. Destroying this {gameObject.name}");
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+        
         // Subscribe to the event
-        Enemy.OnEnemyDefeated += UpdateScore;
-        Enemy.OnEnemyDied += OnEnemyDeath;
-        gameEventSO.Register(OnGameEvent);
+        // Enemy.OnEnemyDefeated += UpdateScore;
+        // Enemy.OnEnemyDied += OnEnemyDeath;
+        gameEventSO?.Register(OnGameEvent);
 
         GameEvents.OnGameProgressed += UpdateLoadingProgress;
         Player.OnPlayerDeath += ShowGameOver;

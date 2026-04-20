@@ -16,7 +16,8 @@ public class SimpleGraph
     // add undirected edge
     public void AddEdge(int a, int b)
     {
-        AddNode(a); AddNode(b);
+        AddNode(a); 
+        AddNode(b);
         adj[a].Add(b);
         adj[b].Add(a);
     }

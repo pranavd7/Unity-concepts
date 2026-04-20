@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: MeleeEnemy
   m_EditorClassIdentifier: 
   name: melee
-  maxHealth: 200
+  maxHealth: 500
   damage: 20
-  score: 5
+  modifier: 1
+  score: 10
   spawnPosition: {x: 0, y: 0, z: 0}
+  animName: Melee_Jumping

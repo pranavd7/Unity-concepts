@@ -10,7 +10,7 @@ public class EnemyIdleState : State<Enemy>
     {
         // Play idle anim.
 
-        if (!Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W))
             owner.StateMachineGeneric.ChangeState(EnemyStates.Move);
     }
 

@@ -3,9 +3,15 @@ using System.Collections;
 
 public class Example : MonoBehaviour
 {
+    
+    int maxBullets = 10;
+    int bullets = 10;
+    
     void Start()
     {
-        StartCoroutine(PrintMessage());
+        Coroutine co = StartCoroutine(OuterCoroutine());
+        
+        // StopAllCoroutines();
     }
 
     IEnumerator PrintMessage()
@@ -38,9 +44,22 @@ public class Example : MonoBehaviour
         while (true)
         {
             Debug.Log("Bullet fired!");
+            bullets--;
             // Fire every 1s.
-            yield return new WaitForSeconds(1f); 
+            yield return new WaitForSeconds(1f);
+            if (bullets == 0)
+            {
+                yield return Reload();
+            }
         }
+    }
+
+    private IEnumerator Reload()
+    {
+        Debug.Log("Reloading bullets");
+        
+        yield return new WaitForSeconds(2f);
+        bullets = maxBullets;
     }
 
     IEnumerator InnerCoroutine()

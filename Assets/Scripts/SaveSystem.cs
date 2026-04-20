@@ -2,6 +2,18 @@ using UnityEngine;
 using System;
 using System.IO;
 
+public class GameData
+{
+    public PlayerData playerData;
+    public BossData bossData;
+}
+
+public class BossData
+{
+    
+}
+
+
 [Serializable]
 public class PlayerData
 {
@@ -13,13 +25,24 @@ public class PlayerData
 public class SaveSystem : MonoBehaviour
 {
     private string directory = "PlayerDataFolder";
-    private string fileName = "PlayerData.json";
+    private string fileName = "PlayerData.data";
+    
+    GameData gameData;
+
+    public void UpdatePlayerdata(PlayerData data)
+    {
+        gameData.playerData = data;
+    }
 
     public void Start()
     {
-        SaveData();
+        gameData = new GameData();
+        
+        GameEvents.OnGameProgressed += (f) => SaveData();
+        // SaveData();
 
         PlayerData loadedData = LoadData();
+        GameEvents.SendOnGameLoaded(loadedData);
         // m_player.SetHealth(loadedData.health);
         // m_player.transform.position = loadedData.position;
     }

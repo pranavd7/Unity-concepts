@@ -3,8 +3,14 @@ using System.Collections.Generic;
 
 public class StateMachine<T>
 {
+    private T owner;
     private State<T> currentState;
     private Dictionary<Enum, State<T>> states;
+    
+    public StateMachine()
+    {
+        states = new Dictionary<Enum, State<T>>();
+    }
 
     public void RegisterState(Enum en, State<T> state)
     {

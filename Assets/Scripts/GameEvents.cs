@@ -14,8 +14,21 @@ public class GameEvents
     public static event Action<int> OnScoreUpdated;
     public static event Action<float> OnGameProgressed;
     
+    public static event Action<PlayerData> OnGameProgression;
+    public static event Action<PlayerData> OnGameLoaded;
+    
     public static void SendOnGameProgressed(float value)
     {
         OnGameProgressed?.Invoke(value);
+    }
+    
+    public static void SendOnGameProgression(PlayerData value)
+    {
+        OnGameProgression?.Invoke(value);
+    }
+    
+    public static void SendOnGameLoaded(PlayerData value)
+    {
+        OnGameLoaded?.Invoke(value);
     }
 }

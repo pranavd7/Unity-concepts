@@ -1,16 +1,17 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private ObjectPool<Bullet> _pool;
+    private Action<Bullet> onHit;
 
     private void OnHit()
     {
-        _pool.Return(this);
+        onHit?.Invoke(this);
     }
 
-    public void Init(ObjectPool<Bullet> pool)
+    public void Init(Action<Bullet> onHit)
     {
-        _pool = pool;
+        this.onHit = onHit;
     }
 }

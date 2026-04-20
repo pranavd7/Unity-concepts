@@ -6,7 +6,7 @@ class DirectoryExample
     static void Main()
     {
         string folderPath = "TestFolder";
-        string filePath = Path.Combine(folderPath, "data.txt"); // TestFolder/data.txt
+        string filePath = Path.Combine(folderPath, "test2", folderPath, "data.txt"); // TestFolder/data.txt
 
         // Create directory if it doesn’t exist.
         if (!Directory.Exists(folderPath))

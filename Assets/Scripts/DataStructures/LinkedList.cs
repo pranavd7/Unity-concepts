@@ -36,13 +36,13 @@ public class LinkedList
     // Insert at tail
     public void AddLast(int value)
     {
-        Node n = new Node(value);
+        Node n = new Node(value);   // While(curr.next != searchingNode)
         if (head == null) 
             head = n;
         else
         {
             Node cur = head;
-            while (cur.Next != null) 
+            while (cur.Next != null && cur.Next.Next == null) 
                 cur = cur.Next;
             cur.Next = n;
         }

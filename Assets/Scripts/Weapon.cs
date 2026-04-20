@@ -43,7 +43,7 @@ public class Weapon: MonoBehaviour
         {
             // shoot logic
             Bullet bullet = _pool.Get();
-            bullet.Init(_pool);
+            bullet.Init(ReturnToPool);
             bullet.transform.position = transform.position;
             bullet.transform.rotation = transform.rotation;
             
@@ -53,6 +53,11 @@ public class Weapon: MonoBehaviour
         {
             reloadCoroutine = StartCoroutine(Reload());
         }
+    }
+
+    private void ReturnToPool(Bullet bullet)
+    {
+        _pool.Return(bullet);
     }
     
     private IEnumerator Reload()

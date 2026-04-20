@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -31,5 +32,10 @@ public class LevelLoader : MonoBehaviour
     public void LoadLevel(string levelName)
     {
         GameManager.Instance.LoadLevel(levelName);
+    }
+
+    private void OnDestroy()
+    {
+        Debug.Log("LevelLoader destroyed");
     }
 }

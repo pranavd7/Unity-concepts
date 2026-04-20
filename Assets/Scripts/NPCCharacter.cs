@@ -33,7 +33,7 @@ public class NPCCharacter : MonoBehaviour, ICharacter, IDamageable
         }
     }
 
-    private void Die()
+    public void Die()
     {
         Debug.Log($"Character died");
     }
