@@ -1,11 +1,9 @@
-using UnityEditor.Animations;
 using UnityEngine;
 
 public class ThirdPersonMovement : MonoBehaviour
 {
     public CharacterController controller;
     public Animator animator;
-    public AnimatorControllerLayer animatorControllerLayer;
     public float speed = 5f;
     public float gravity = -9.81f;
     public float jumpPower = 5f;
